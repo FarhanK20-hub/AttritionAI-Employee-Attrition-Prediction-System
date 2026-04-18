@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   TATA MOTORS CORPORATE DESIGN SYSTEM
+   ───────────────────────────────────────────────────────────
+   Primary:    #1A3C6E (Tata Navy)
+   Accent:     #0078D4 (Corporate Blue)
+   Success:    #0D9F6E
+   Warning:    #D97706
+   Danger:     #DC2626
+   Surface:    #0B1120 → #111827 → #1F2937
+   ═══════════════════════════════════════════════════════════ */
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-primary: #0078D4;
+  --color-primary-light: #3B9AE8;
+  --color-primary-dark: #005A9E;
+  --color-surface: #0B1120;
+  --color-surface-light: #111827;
+  --color-surface-lighter: #1F2937;
+  --color-danger: #DC2626;
+  --color-danger-light: #FCA5A5;
+  --color-warning: #D97706;
+  --color-warning-light: #FCD34D;
+  --color-success: #0D9F6E;
+  --color-success-light: #6EE7B7;
+  --color-accent: #1A3C6E;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: #0B1120;
+    color: #E5E7EB;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111827;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4B5563;
+  }
+
+  ::selection {
+    background: rgba(0, 120, 212, 0.3);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* ── Cards ─────────────────────────────────────── */
+  .glass-card {
+    background: #111827;
+    border: 1px solid #1F2937;
+    border-radius: 12px;
+    transition: border-color 0.2s ease;
+  }
+  .glass-card:hover {
+    border-color: #374151;
+  }
+
+  /* ── Risk Badges ───────────────────────────────── */
+  .badge-high {
+    background: rgba(220, 38, 38, 0.12);
+    color: #FCA5A5;
+    border: 1px solid rgba(220, 38, 38, 0.25);
+  }
+  .badge-medium {
+    background: rgba(217, 119, 6, 0.12);
+    color: #FCD34D;
+    border: 1px solid rgba(217, 119, 6, 0.25);
+  }
+  .badge-low {
+    background: rgba(13, 159, 110, 0.12);
+    color: #6EE7B7;
+    border: 1px solid rgba(13, 159, 110, 0.25);
+  }
+
+  /* ── Buttons ───────────────────────────────────── */
+  .btn-primary {
+    background: #0078D4;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover {
+    background: #005A9E;
+    box-shadow: 0 2px 12px rgba(0, 120, 212, 0.3);
+  }
+  .btn-primary:active {
+    background: #004578;
+  }
+  .btn-primary:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #9CA3AF;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid #1F2937;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-outline:hover {
+    border-color: #374151;
+    color: #D1D5DB;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* ── Input Fields ──────────────────────────────── */
+  .input-field {
+    background: #0B1120;
+    border: 1px solid #1F2937;
+    border-radius: 8px;
+    padding: 9px 14px;
+    color: #E5E7EB;
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: #0078D4;
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.15);
+  }
+  .input-field::placeholder {
+    color: #4B5563;
+  }
+
+  /* ── Animations (reduced, faster) ──────────────── */
+  .fade-in {
+    animation: fadeIn 0.25s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-up {
+    animation: slideUp 0.3s ease-out both;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pulse-dot {
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Custom range slider ───────────────────────── */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #1F2937;
+    border-radius: 2px;
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #0078D4;
+    cursor: pointer;
+    border: 2px solid #0B1120;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.15s ease;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 4px rgba(0, 120, 212, 0.2);
+  }
+
+  /* ── Select dropdown ───────────────────────────── */
+  select.input-field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 36px;
+  }
+
+  /* ── Table rows ────────────────────────────────── */
+  table tbody tr {
+    transition: background-color 0.1s ease;
+  }
+}
