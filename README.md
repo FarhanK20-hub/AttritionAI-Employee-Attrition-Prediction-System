@@ -2,6 +2,8 @@
 
 > An AI-powered SaaS platform that predicts which employees are likely to leave a company, helping HR teams take action before it's too late.
 
+**🚀 Live Demo:** [https://attrition-ai-employee-attrition-pre.vercel.app/](https://attrition-ai-employee-attrition-pre.vercel.app/)
+
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.135-009688?logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
